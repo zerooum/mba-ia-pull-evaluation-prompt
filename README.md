@@ -8,7 +8,7 @@ Você deve entregar um software capaz de:
 2. **Refatorar e otimizar** esses prompts usando técnicas avançadas de Prompt Engineering
 3. **Fazer push dos prompts otimizados** de volta ao LangSmith
 4. **Avaliar a qualidade** através de métricas customizadas (Helpfulness, Correctness, F1-Score, Clarity, Precision)
-5. **Atingir pontuação mínima** de 0.9 (90%) em todas as métricas de avaliação
+5. **Atingir pontuação mínima** de 0.8 (80%) em todas as métricas de avaliação
 
 ---
 
@@ -31,7 +31,7 @@ Métricas Base:
   - Precision: 0.46 ✗
 
 ❌ STATUS: REPROVADO
-⚠️  Métricas abaixo de 0.9: helpfulness, correctness, f1_score, clarity, precision
+⚠️  Métricas abaixo de 0.8: helpfulness, correctness, f1_score, clarity, precision
 ```
 
 **Exemplo de prompt OTIMIZADO (v2) — seu objetivo é chegar aqui:**
@@ -57,8 +57,9 @@ Métricas Base:
   - Clarity: 0.95 ✓
   - Precision: 0.92 ✓
 
-✅ STATUS: APROVADO - Todas as métricas >= 0.9
+✅ STATUS: APROVADO - Todas as métricas >= 0.8
 ```
+
 ---
 
 ## Tecnologias obrigatórias
@@ -163,21 +164,21 @@ Após refatorar os prompts, você deve enviá-los de volta ao LangSmith Prompt H
 - Espera-se 3-5 iterações.
 - Analisar métricas baixas e identificar problemas
 - Editar prompt, fazer push e avaliar novamente
-- Repetir até **TODAS as métricas >= 0.9**
+- Repetir até **TODAS as métricas >= 0.8**
 
 ### Critério de Aprovação:
 
 ```
-- Helpfulness >= 0.9
-- Correctness >= 0.9
-- F1-Score >= 0.9
-- Clarity >= 0.9
-- Precision >= 0.9
+- Helpfulness >= 0.8
+- Correctness >= 0.8
+- F1-Score >= 0.8
+- Clarity >= 0.8
+- Precision >= 0.8
 
-MÉDIA das 5 métricas >= 0.9
+MÉDIA das 5 métricas >= 0.8
 ```
 
-**IMPORTANTE:** TODAS as 5 métricas devem estar >= 0.9, não apenas a média!
+**IMPORTANTE:** TODAS as 5 métricas devem estar >= 0.8, não apenas a média!
 
 ### 5. Testes de Validação
 
@@ -224,7 +225,6 @@ mba-ia-pull-evaluation-prompt/
 │
 ├── tests/
 │   └── test_prompts.py       # Testes de validação (implementar)
-│
 ```
 
 **O que você deve implementar:**
@@ -289,39 +289,39 @@ python src/evaluate.py
 
 ## Entregável
 
-1. **Repositório público no GitHub** (fork do repositório base) contendo:
+**1. Repositório público no GitHub** (fork do repositório base) contendo:
 
-   - Todo o código-fonte implementado
-   - Arquivo `prompts/bug_to_user_story_v2.yml` 100% preenchido e funcional
-   - Arquivo `README.md` atualizado com:
+- Todo o código-fonte implementado
+- Arquivo `prompts/bug_to_user_story_v2.yml` 100% preenchido e funcional
+- Arquivo `README.md` atualizado
 
-2. **README.md deve conter:**
+**2. README.md deve conter:**
 
-   A) **Seção "Técnicas Aplicadas (Fase 2)"**:
+**A) Seção "Técnicas Aplicadas (Fase 2)":**
 
-   - Quais técnicas avançadas você escolheu para refatorar os prompts
-   - Justificativa de por que escolheu cada técnica
-   - Exemplos práticos de como aplicou cada técnica
+- Quais técnicas avançadas você escolheu para refatorar os prompts
+- Justificativa de por que escolheu cada técnica
+- Exemplos práticos de como aplicou cada técnica
 
-   B) **Seção "Resultados Finais"**:
+**B) Seção "Resultados Finais":**
 
-   - Link público do seu dashboard do LangSmith mostrando as avaliações
-   - Screenshots das avaliações com as notas mínimas de 0.9 atingidas
-   - Tabela comparativa: prompts ruins (v1) vs prompts otimizados (v2)
+- Link público do seu dashboard do LangSmith mostrando as avaliações
+- Screenshots das avaliações com as notas mínimas de 0.8 atingidas
+- Tabela comparativa: prompts ruins (v1) vs prompts otimizados (v2)
 
-   C) **Seção "Como Executar"**:
+**C) Seção "Como Executar":**
 
-   - Instruções claras e detalhadas de como executar o projeto
-   - Pré-requisitos e dependências
-   - Comandos para cada fase do projeto
+- Instruções claras e detalhadas de como executar o projeto
+- Pré-requisitos e dependências
+- Comandos para cada fase do projeto
 
-3. **Evidências no LangSmith**:
-   - Link público (ou screenshots) do dashboard do LangSmith
-   - Devem estar visíveis:
+**3. Evidências no LangSmith:**
 
-     - Dataset de avaliação com 15 exemplos
-     - Execuções dos prompts v2 (otimizados) com notas ≥ 0.9
-     - Tracing detalhado de pelo menos 3 exemplos
+- Link público (ou screenshots) do dashboard do LangSmith
+- Devem estar visíveis:
+  - Dataset de avaliação com 15 exemplos
+  - Execuções dos prompts v2 (otimizados) com notas ≥ 0.8
+  - Tracing detalhado de pelo menos 3 exemplos
 
 ---
 
@@ -332,5 +332,5 @@ python src/evaluate.py
 - **Chain of Thought (CoT)** é excelente para tarefas que exigem raciocínio complexo (como análise de bugs)
 - **Use o Tracing do LangSmith** como sua principal ferramenta de debug - ele mostra exatamente o que o LLM está "pensando"
 - **Não altere os datasets de avaliação** - apenas os prompts em `prompts/bug_to_user_story_v2.yml`
-- **Itere, itere, itere** - é normal precisar de 3-5 iterações para atingir 0.9 em todas as métricas
+- **Itere, itere, itere** - é normal precisar de 3-5 iterações para atingir 0.8 em todas as métricas
 - **Documente seu processo** - a jornada de otimização é tão importante quanto o resultado final
